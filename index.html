@@ -16,6 +16,20 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        body::before {
+    content: ''; /* Fără conținut, doar pentru stilizare */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img_medici.png'); /* Calea către imagine */
+    background-position: center; /* Centrează imaginea */
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(10px); /* Aplică un efect de blur */
+    z-index: -1; /* Asigură-te că imaginea este în spate față de text */
+}
     </style>
 </head>
 <body class="body">
