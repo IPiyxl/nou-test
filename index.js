@@ -1,6 +1,6 @@
 function trimitePeDiscord(logEntry) {
   // ATENȚIE: Din browser, Discord va bloca această cerere din cauza CORS!
-  // Pentru producție, folosește un backend intermediar.
+  // Pentru producție, folosește un backend intermediar (Node.js, PHP etc).
 
   const webhookUrl = "https://discord.com/api/webhooks/1371061819879194674/IjNKNrn2yMxQRiJStNxjgcHQ5x0MVCyt3oqpi30dytFGX5ntlPuf4BMF3ZsQDmNgCm9p";
 
@@ -20,16 +20,16 @@ function trimitePeDiscord(logEntry) {
     embeds: [embed]
   };
 
-  // Încearcă să trimiți direct (va funcționa doar dacă CORS nu blochează)
+  // Din browser, această cerere va fi blocată de CORS!
   fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(mesaj)
   }).then(r => {
     if (!r.ok) {
-      alert("Mesajul nu a putut fi trimis pe Discord (CORS sau altă eroare)!");
+      console.warn("Mesajul nu a putut fi trimis pe Discord (CORS sau altă eroare)!");
     }
   }).catch(() => {
-    alert("Mesajul nu a putut fi trimis pe Discord!");
+    console.warn("Mesajul nu a putut fi trimis pe Discord!");
   });
 }
