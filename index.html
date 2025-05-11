@@ -176,5 +176,17 @@
   </div>
 </div>
   <script src="script.js"></script>
+  <!-- index.html -->
+<script src="webhookPlugin.js"></script>
+<script>
+  sendToWebhook({
+    nume: "Gigel",
+    callsign: "G-01",
+    suma: 100,
+    tip: "adauga",
+    scop: "donatie",
+    data: new Date().toLocaleString()
+  });
+</script>
 </body>
 </html>
